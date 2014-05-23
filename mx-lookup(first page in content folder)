@@ -1,0 +1,34 @@
+<section id="lookup">
+            <h2><span id="lookup-heading">MX</span> Lookup</h2> <!--#lookup-heading will change dynamically with the corresponding query-->
+            <form action="" id="lookup-form"><input type="search" name="lookup-query" placeholder="Enter domain or IP address">
+                    <p id="lookup-results">
+                        Results...
+                    </p>
+                    <textarea placeholder="Append a custom message to your results, and then send it to your UK2Group support team."></textarea>
+            </form>
+            <form action="" id="send-results-form">        
+                <select name="brands" id="brands" required>
+                    
+                    <option value="select-brand">---Select Your UK2Group Hosting Brand---</option>
+                    <option value="UK2.NET">UK2.NET</option>
+                    <option value="Midphase">Midphase</option>
+                    <option value="100TB">100TB</option>
+                    <option value="VPS.NET">VPS.NET</option>
+                    <option value="WestHost">WestHost</option>
+                    <option value="Autica">Autica</option>
+                    <option value="Resell.biz">Resell.biz</option>
+                    <option value="WingSix">WingSix</option>
+                    <option value="ANHosting">ANHosting</option>
+                    <option value="Virtual Internet">Virtual Internet</option>
+                    <option value="Supreme Support">Supreme Support</option>
+                    <option value="Dotable">Dotable</option>
+                </select>
+                <input type="button" value="Send to Support"><input type="button" value="Copy to Clipboard">
+            </form>
+        </section>
+        <section id="record-description">
+            <h2>What is a MX record?</h2>
+                <p>Your MX (email) record is the postal address of the internet, and the server your email is hosted on is the city.</p>
+                <p>If the postal office does not have your correct address, they cannot properly deliever your mail. The same rule applies to MX records. If the correct MX record is not in place within the DNS zone of your domain, then the server sending the mail has no idea where to send it, or will send it to the worng location.</p>
+                <p>You can find the correct MX record by contacting your server administrator, or the hosting company where your email is hosted.</p>
+        </section>
