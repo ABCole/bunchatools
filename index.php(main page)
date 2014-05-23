@@ -1,0 +1,93 @@
+<?php
+	if (isset($_GET['content'])) {
+		$content = $_GET['content'];
+	} else {
+		$content = 'mx-lookup.php';
+	}
+	$currentPage = $content;
+	if ($content == 'mx-lookup.php'){
+		$title1 = 'MX Explained';
+		$title2 = 'MX';
+		$title3 = 'explained';
+	} elseif ($content == 'dns.php'){
+		$title1 = 'DNS Explained';
+		$title2 = 'DNS';
+		$title3 = 'explained';
+	} elseif ($content == 'headers.php'){
+		$title1 = 'Headers Explained';
+		$title2 = 'Headers';
+		$title3 = 'explained';
+	} elseif ($content == 'whois.php'){
+		$title1 = 'WHOIS Explained';
+		$title2 = 'WHOIS';
+		$title3 = 'explained';
+	} elseif ($content == 'my-ip.php'){
+		$title1 = 'Public IP Explained';
+		$title2 = 'Public IP';
+		$title3 = 'explained';
+	} elseif ($content == 'blacklists.php'){
+		$title1 = 'Blcklists Explained';
+		$title2 = 'Blacklists';
+		$title3 = 'explained';
+	}
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Arvo:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title><?php echo $title1; ?></title>
+</head>
+<body>
+    
+    <header> 
+        <div id="title">
+            <h1><?php echo $title2; ?></h1>
+            <h1><?php echo $title3; ?></h1>
+        </div>
+        <nav>
+            <ul>
+            	<!--Class is defined dynamically depending on the $content veriable-->
+                <li <?php if ($currentPage == 'dns.php'){echo 'class="active-query"';} ?>><a href="?content=dns.php">DNS</a></li>
+                <li <?php if ($currentPage == 'mx-lookup.php'){echo 'class="active-query"';} ?>><a href="?content=mx-lookup.php">MX (email)</a></li>
+                <li <?php if ($currentPage == 'headers.php'){echo 'class="active-query"';} ?>><a href="?content=headers.php">Email Headers</a></li>
+                <li <?php if ($currentPage == 'whois.php'){echo 'class="active-query"';} ?>><a href="?content=whois.php">WHOIS</a></li>
+                <li <?php if ($currentPage == 'my-ip.php'){echo 'class="active-query"';} ?>><a href="?content=my-ip.php">My Public IP</a></li>
+                <li <?php if ($currentPage == 'blacklist.php'){echo 'class="active-query"';} ?>><a href="?content=blacklist.php">Blacklists</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="wrapper" class="cf">
+            <?php  try { 
+            	$file = "./content/$content";
+				if (file_exists($file) && is_readable($file)) {
+					include($file);
+				} else {
+					throw new Exception("$file cant be found");
+				}
+				} catch (Exception $e) {
+					header('location: http://localhost/site/index2.php');
+				}
+            ?>
+    </section>
+    
+    <footer class="cf">
+<!--        <img src="#" alt="powered by UK2Group">-->
+        <ul>
+            <li id="logo"><img src="_assets/logo.png" alt="UK2 Group logo"></li>
+            <li><a href="http://uk2group.com">Check us out for your domain registration or web hosting solution!</a><br>&copy;1988-2014</li>
+            <li><a href="https://twitter.com/UK2Group"><img src="_assets/twitter75.png" alt="UK2Group on Twitter"></a> <a href="https://www.linkedin.com/company/uk2-group"><img src="_assets/linkedin75.png" alt="UK2Group on Linked in"></a></li>
+        </ul>
+    </footer>
+    
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
