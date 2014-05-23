@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Arvo:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Page not found!</title>
+    <?php
+		if (isset($_GET['content'])) {
+			$content = $_GET['content'];
+		} else {
+			$content = 'mx-lookup.php';
+		}
+		$currentPage = $content;
+	?>
+</head>
+<body>
+    
+    <header> 
+        <div id="title">
+            <h1></h1>
+            <h1>Page Not Found!</h1>
+        </div>
+        <nav>
+            <ul>
+            	<!--Class is defined dynamically depending on the $content veriable-->
+                <li><a href="../?content=dns.php">DNS</a></li>
+                <li><a href="../?content=mx-lookup.php">MX (email)</a></li>
+                <li><a href="../?content=headers.php">Email Headers</a></li>
+                <li><a href="../?content=whois.php">WHOIS</a></li>
+                <li><a href="../?content=my-ip.php">My Public IP</a></li>
+                <li><a href="../?content=blacklist.php">Blacklists</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="wrapper" class="cf">
+        <section id="lookup">
+            <h2>Oops! There's a Problem</h2>
+			<h3>Sorry, the page you were looking for cannot be displayed.</h3>
+        </section>
+    </section>
+    
+    <footer class="cf">
+<!--        <img src="#" alt="powered by UK2Group">-->
+        <ul>
+            <li id="logo"><img src="_assets/logo.png" alt="UK2 Group logo"></li>
+            <li><a href="http://uk2group.com">Check us out for your domain registration or web hosting solution!</a><br>&copy;1988-2014</li>
+            <li><a href="https://twitter.com/UK2Group"><img src="_assets/twitter75.png" alt="UK2Group on Twitter"></a> <a href="https://www.linkedin.com/company/uk2-group"><img src="_assets/linkedin75.png" alt="UK2Group on Linked in"></a></li>
+        </ul>
+    </footer>
+    
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
